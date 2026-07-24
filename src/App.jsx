@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import CGPACalculator from "./pages/CGPACalculator";
+import CGPACalculator from "./pages/CGPAcalculator";
 import AttendanceCalculator from "./pages/AttendanceCalculator";
 import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
