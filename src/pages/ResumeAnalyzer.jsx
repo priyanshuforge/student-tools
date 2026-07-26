@@ -314,7 +314,7 @@ function ResumeAnalyzer() {
       setRoadmap([]);
 
       const response = await fetch(
-        "http://localhost:5001/api/generate-roadmap",
+        "https://student-tools-backend-ufd2.onrender.com/api/generate-roadmap",
         {
           method: "POST",
           headers: {
@@ -359,7 +359,7 @@ function ResumeAnalyzer() {
       setInterviewQuestions([]);
 
       const response = await fetch(
-        "http://localhost:5001/api/generate-interview",
+        "https://student-tools-backend-ufd2.onrender.com/api/generate-interview",
         {
           method: "POST",
           headers: {
@@ -432,7 +432,7 @@ function ResumeAnalyzer() {
 
       try {
         const aiResponse = await fetch(
-          "http://localhost:5001/api/analyze-resume",
+          "https://student-tools-backend-ufd2.onrender.com/api/analyze-resume",
           {
             method: "POST",
             headers: {
@@ -490,16 +490,19 @@ function ResumeAnalyzer() {
     }
 
     try {
-      const response = await fetch("http://localhost:5001/api/analyze-ats", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://student-tools-backend-ufd2.onrender.com/api/analyze-ats",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            resumeText: resumeText,
+            jobDescription: jobDescription,
+          }),
         },
-        body: JSON.stringify({
-          resumeText: resumeText,
-          jobDescription: jobDescription,
-        }),
-      });
+      );
 
       const data = await response.json();
 
