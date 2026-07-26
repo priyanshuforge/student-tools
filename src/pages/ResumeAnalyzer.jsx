@@ -400,22 +400,24 @@ function ResumeAnalyzer() {
     }
 
     try {
-      const arrayBuffer = await resume.arrayBuffer();
+      const formData = new FormData();
+      formData.append("resume", resume);
 
-      const pdf = await pdfjsLib.getDocument({
-        data: arrayBuffer,
-      }).promise;
+      const uploadResponse = await fetch(
+        "https://student-tools-backend-ufd2.onrender.com/api/upload-resume",
+        {
+          method: "POST",
+          body: formData,
+        },
+      );
 
-      let fullText = "";
+      const uploadData = await uploadResponse.json();
 
-      for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
-        const page = await pdf.getPage(pageNumber);
-        const content = await page.getTextContent();
-
-        const pageText = content.items.map((item) => item.str).join(" ");
-
-        fullText += pageText + "\n";
+      if (!uploadResponse.ok || !uploadData.success) {
+        throw new Error(uploadData.error || "Unable to read PDF");
       }
+
+      const fullText = uploadData.resumeText;
 
       setResumeText(fullText);
 
