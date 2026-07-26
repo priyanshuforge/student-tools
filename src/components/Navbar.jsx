@@ -30,6 +30,31 @@ function Navbar() {
                 CGPA Calculator
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/sgpa-calculator">
+                SGPA Calculator
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/percentage-calculator">
+                Percentage Calculator
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/average-calculator">
+                Average Calculator
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/age-calculator">
+                Age Calculator
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/resume-analyzer">
+                Resume Analyzer
+              </Link>
+            </li>
 
             <li className="nav-item">
               <Link className="nav-link" to="/attendance-calculator">
