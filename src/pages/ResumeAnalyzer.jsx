@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 import ReactMarkdown from "react-markdown";
 import pdfWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
@@ -6,6 +6,18 @@ import pdfWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 function ResumeAnalyzer() {
+  useEffect(() => {
+    document.title = "AI Resume Analyzer | Resume Score & ATS Checker";
+
+    const description = document.querySelector('meta[name="description"]');
+
+    if (description) {
+      description.setAttribute(
+        "content",
+        "Free AI resume analyzer for students. Check your resume score, skills, ATS match, career roadmap and generate AI interview questions.",
+      );
+    }
+  }, []);
   const [resume, setResume] = useState(null);
   const [resumeText, setResumeText] = useState("");
   const [skills, setSkills] = useState([]);

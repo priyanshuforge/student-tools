@@ -1,6 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function SGPACalculator() {
+  useEffect(() => {
+    document.title = "SGPA Calculator Online | Calculate Semester GPA";
+
+    const description = document.querySelector('meta[name="description"]');
+
+    if (description) {
+      description.setAttribute(
+        "content",
+        "Free online SGPA calculator for students. Calculate your semester grade point average using subject credits and grade points.",
+      );
+    }
+  }, []);
   const [subjects, setSubjects] = useState([
     { credit: "", grade: "" },
     { credit: "", grade: "" },

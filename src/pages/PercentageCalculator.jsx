@@ -1,6 +1,17 @@
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 function PercentageCalculator() {
+  useEffect(() => {
+    document.title = "Percentage Calculator Online | Calculate Percentage";
+
+    const description = document.querySelector('meta[name="description"]');
+
+    if (description) {
+      description.setAttribute(
+        "content",
+        "Free online percentage calculator for students. Calculate your percentage easily from obtained marks and total marks.",
+      );
+    }
+  }, []);
   const [obtainedMarks, setObtainedMarks] = useState("");
   const [totalMarks, setTotalMarks] = useState("");
   const [percentage, setPercentage] = useState(null);

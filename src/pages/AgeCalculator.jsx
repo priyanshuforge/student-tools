@@ -1,6 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function AgeCalculator() {
+  useEffect(() => {
+    document.title = "Age Calculator Online | Calculate Exact Age";
+
+    const description = document.querySelector('meta[name="description"]');
+
+    if (description) {
+      description.setAttribute(
+        "content",
+        "Free online age calculator. Calculate your exact age in years, months and days quickly and easily.",
+      );
+    }
+  }, []);
   const [dob, setDob] = useState("");
   const [age, setAge] = useState(null);
 

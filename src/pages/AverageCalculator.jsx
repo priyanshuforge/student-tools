@@ -1,6 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function AverageCalculator() {
+  useEffect(() => {
+    document.title = "Average Calculator Online | Calculate Average Marks";
+
+    const description = document.querySelector('meta[name="description"]');
+
+    if (description) {
+      description.setAttribute(
+        "content",
+        "Free online average calculator for students. Calculate the average marks of multiple subjects quickly and easily.",
+      );
+    }
+  }, []);
   const [marks, setMarks] = useState(["", "", ""]);
   const [average, setAverage] = useState(null);
 

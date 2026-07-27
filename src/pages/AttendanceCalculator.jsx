@@ -1,6 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function AttendanceCalculator() {
+  useEffect(() => {
+    document.title =
+      "Attendance Calculator Online | Calculate Attendance Percentage";
+
+    const description = document.querySelector('meta[name="description"]');
+
+    if (description) {
+      description.setAttribute(
+        "content",
+        "Free online attendance calculator for students. Calculate your attendance percentage and check how many classes you need to attend.",
+      );
+    }
+  }, []);
   const [totalClasses, setTotalClasses] = useState("");
   const [attendedClasses, setAttendedClasses] = useState("");
   const [result, setResult] = useState(null);
