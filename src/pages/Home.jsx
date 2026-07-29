@@ -1,119 +1,129 @@
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 function Home() {
   return (
-    <div className="container py-5">
-      <div className="text-center mb-5">
-        <h1 className="display-4 fw-bold">🎓 StudentTools</h1>
+    <>
+      <SEO
+        title="Student Tools - Free Online Student Calculators"
+        description="Free online student tools including Percentage Calculator, CGPA Calculator, SGPA Calculator, Attendance Calculator, Average Calculator, Age Calculator and AI Resume Analyzer."
+        canonical="/"
+      />
 
-        <p className="lead text-muted">
-          Free online tools designed to make student life easier.
-        </p>
-      </div>
+      {/* Existing Home JSX */}
+      <div className="container py-5">
+        <div className="text-center mb-5">
+          <h1 className="display-4 fw-bold">🎓 StudentTools</h1>
 
-      <div className="row justify-content-center g-4">
-        {/* CGPA Calculator */}
-        <div className="col-md-5">
-          <div className="card shadow-sm h-100">
-            <div className="card-body text-center p-4">
-              <h2>📊 CGPA Calculator</h2>
-
-              <p className="text-muted">
-                Easily calculate your CGPA and convert CGPA into percentage.
-              </p>
-
-              <Link to="/cgpa-calculator" className="btn btn-primary">
-                Calculate CGPA
-              </Link>
-            </div>
-          </div>
+          <p className="lead text-muted">
+            Free online tools designed to make student life easier.
+          </p>
         </div>
 
-        {/* Attendance Calculator */}
-        <div className="col-md-5">
-          <div className="card shadow-sm h-100">
-            <div className="card-body text-center p-4">
-              <h2>📅 Attendance Calculator</h2>
+        <div className="row justify-content-center g-4">
+          {/* CGPA Calculator */}
+          <div className="col-md-5">
+            <div className="card shadow-sm h-100">
+              <div className="card-body text-center p-4">
+                <h2>📊 CGPA Calculator</h2>
 
-              <p className="text-muted">
-                Calculate your attendance and check how many classes you need.
-              </p>
+                <p className="text-muted">
+                  Easily calculate your CGPA and convert CGPA into percentage.
+                </p>
 
-              <Link to="/attendance-calculator" className="btn btn-success">
-                Check Attendance
-              </Link>
+                <Link to="/cgpa-calculator" className="btn btn-primary">
+                  Calculate CGPA
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* SGPA Calculator */}
-        <div className="col-md-5">
-          <div className="card shadow-sm h-100">
-            <div className="card-body text-center p-4">
-              <h2>📚 SGPA Calculator</h2>
+          {/* Attendance Calculator */}
+          <div className="col-md-5">
+            <div className="card shadow-sm h-100">
+              <div className="card-body text-center p-4">
+                <h2>📅 Attendance Calculator</h2>
 
-              <p className="text-muted">
-                Calculate your SGPA using subject credits and grade points.
-              </p>
+                <p className="text-muted">
+                  Calculate your attendance and check how many classes you need.
+                </p>
 
-              <Link to="/sgpa-calculator" className="btn btn-warning">
-                Calculate SGPA
-              </Link>
+                <Link to="/attendance-calculator" className="btn btn-success">
+                  Check Attendance
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Percentage Calculator */}
-        <div className="col-md-5">
-          <div className="card shadow-sm h-100">
-            <div className="card-body text-center p-4">
-              <h2>📈 Percentage Calculator</h2>
+          {/* SGPA Calculator */}
+          <div className="col-md-5">
+            <div className="card shadow-sm h-100">
+              <div className="card-body text-center p-4">
+                <h2>📚 SGPA Calculator</h2>
 
-              <p className="text-muted">
-                Calculate your percentage from obtained and total marks.
-              </p>
+                <p className="text-muted">
+                  Calculate your SGPA using subject credits and grade points.
+                </p>
 
-              <Link to="/percentage-calculator" className="btn btn-info">
-                Calculate Percentage
-              </Link>
+                <Link to="/sgpa-calculator" className="btn btn-warning">
+                  Calculate SGPA
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Average Calculator */}
-        <div className="col-md-5">
-          <div className="card shadow-sm h-100">
-            <div className="card-body text-center p-4">
-              <h2>📝 Marks Average Calculator</h2>
+          {/* Percentage Calculator */}
+          <div className="col-md-5">
+            <div className="card shadow-sm h-100">
+              <div className="card-body text-center p-4">
+                <h2>📈 Percentage Calculator</h2>
 
-              <p className="text-muted">
-                Calculate the average marks of multiple subjects easily.
-              </p>
+                <p className="text-muted">
+                  Calculate your percentage from obtained and total marks.
+                </p>
 
-              <Link to="/average-calculator" className="btn btn-secondary">
-                Calculate Average
-              </Link>
+                <Link to="/percentage-calculator" className="btn btn-info">
+                  Calculate Percentage
+                </Link>
+              </div>
             </div>
-            {/* Age Calculator */}
-            <div className="col-md-5">
-              <div className="card shadow-sm h-100">
-                <div className="card-body text-center p-4">
-                  <h2>🎂 Age Calculator</h2>
+          </div>
 
-                  <p className="text-muted">
-                    Calculate your exact age in years, months and days.
-                  </p>
+          {/* Average Calculator */}
+          <div className="col-md-5">
+            <div className="card shadow-sm h-100">
+              <div className="card-body text-center p-4">
+                <h2>📝 Marks Average Calculator</h2>
 
-                  <Link to="/age-calculator" className="btn btn-danger">
-                    Calculate Age
-                  </Link>
+                <p className="text-muted">
+                  Calculate the average marks of multiple subjects easily.
+                </p>
+
+                <Link to="/average-calculator" className="btn btn-secondary">
+                  Calculate Average
+                </Link>
+              </div>
+              {/* Age Calculator */}
+              <div className="col-md-5">
+                <div className="card shadow-sm h-100">
+                  <div className="card-body text-center p-4">
+                    <h2>🎂 Age Calculator</h2>
+
+                    <p className="text-muted">
+                      Calculate your exact age in years, months and days.
+                    </p>
+
+                    <Link to="/age-calculator" className="btn btn-danger">
+                      Calculate Age
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

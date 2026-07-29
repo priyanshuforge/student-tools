@@ -1,18 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import SEO from "../components/SEO";
 
 function AgeCalculator() {
-  useEffect(() => {
-    document.title = "Age Calculator Online | Calculate Exact Age";
-
-    const description = document.querySelector('meta[name="description"]');
-
-    if (description) {
-      description.setAttribute(
-        "content",
-        "Free online age calculator. Calculate your exact age in years, months and days quickly and easily.",
-      );
-    }
-  }, []);
   const [dob, setDob] = useState("");
   const [age, setAge] = useState(null);
 
@@ -49,39 +38,47 @@ function AgeCalculator() {
   };
 
   return (
-    <div className="container py-5">
-      <div className="card shadow-sm mx-auto" style={{ maxWidth: "700px" }}>
-        <div className="card-body p-4">
-          <h1 className="text-center mb-3">🎂 Age Calculator</h1>
+    <>
+      <SEO
+        title="Age Calculator | Student Tools"
+        description="Calculate your exact age in years, months and days instantly with our free Age Calculator."
+        canonical="/age-calculator"
+      />
 
-          <p className="text-muted text-center mb-4">
-            Enter your date of birth to calculate your exact age.
-          </p>
+      <div className="container py-5">
+        <div className="card shadow-sm mx-auto" style={{ maxWidth: "700px" }}>
+          <div className="card-body p-4">
+            <h1 className="text-center mb-3">🎂 Age Calculator</h1>
 
-          <label className="form-label">Date of Birth</label>
+            <p className="text-muted text-center mb-4">
+              Enter your date of birth to calculate your exact age.
+            </p>
 
-          <input
-            type="date"
-            className="form-control mb-3"
-            value={dob}
-            onChange={(e) => setDob(e.target.value)}
-          />
+            <label className="form-label">Date of Birth</label>
 
-          <button className="btn btn-primary w-100" onClick={calculateAge}>
-            Calculate Age
-          </button>
+            <input
+              type="date"
+              className="form-control mb-3"
+              value={dob}
+              onChange={(e) => setDob(e.target.value)}
+            />
 
-          {age && (
-            <div className="alert alert-success text-center mt-4">
-              <h4>Your Age</h4>
-              <strong>
-                {age.years} Years, {age.months} Months, {age.days} Days
-              </strong>
-            </div>
-          )}
+            <button className="btn btn-primary w-100" onClick={calculateAge}>
+              Calculate Age
+            </button>
+
+            {age && (
+              <div className="alert alert-success text-center mt-4">
+                <h4>Your Age</h4>
+                <strong>
+                  {age.years} Years, {age.months} Months, {age.days} Days
+                </strong>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

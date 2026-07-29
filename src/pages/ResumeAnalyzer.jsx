@@ -2,22 +2,11 @@ import { useEffect, useState } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 import ReactMarkdown from "react-markdown";
 import pdfWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
+import SEO from "../components/SEO";
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 function ResumeAnalyzer() {
-  useEffect(() => {
-    document.title = "AI Resume Analyzer | Resume Score & ATS Checker";
-
-    const description = document.querySelector('meta[name="description"]');
-
-    if (description) {
-      description.setAttribute(
-        "content",
-        "Free AI resume analyzer for students. Check your resume score, skills, ATS match, career roadmap and generate AI interview questions.",
-      );
-    }
-  }, []);
   const [resume, setResume] = useState(null);
   const [resumeText, setResumeText] = useState("");
   const [skills, setSkills] = useState([]);
@@ -534,513 +523,535 @@ function ResumeAnalyzer() {
   };
 
   return (
-    <div className="container py-5">
-      <div className="card shadow-sm mx-auto" style={{ maxWidth: "750px" }}>
-        <div className="card-body p-5">
-          {/* Heading */}
+    <>
+      <SEO
+        title="AI Resume Analyzer | Student Tools"
+        description="Free AI Resume Analyzer. Upload your resume and get instant feedback to improve your resume."
+        canonical="/resume-analyzer"
+      />
+      <div className="container py-5">
+        <div className="card shadow-sm mx-auto" style={{ maxWidth: "750px" }}>
+          <div className="card-body p-5">
+            {/* Heading */}
 
-          <div className="text-center">
-            <h1 className="fw-bold mb-3">📄 AI Resume Analyzer</h1>
+            <div className="text-center">
+              <h1 className="fw-bold mb-3">📄 AI Resume Analyzer</h1>
 
-            <p className="text-muted mb-4">
-              Analyze your resume, discover skills, check ATS compatibility,
-              generate a career roadmap and practise interview questions.
-            </p>
-          </div>
-
-          {/* Upload */}
-
-          <div className="mb-4">
-            <label className="form-label fw-semibold">Upload Resume</label>
-
-            <input
-              type="file"
-              className="form-control"
-              accept=".pdf"
-              onChange={handleFileChange}
-            />
-          </div>
-
-          {resume && (
-            <p className="text-success text-center">Selected: {resume.name}</p>
-          )}
-
-          <button className="btn btn-primary w-100" onClick={handleAnalyze}>
-            🤖 Analyze Resume
-          </button>
-          {/* AI Resume Analysis */}
-
-          {aiLoading && (
-            <div className="alert alert-info mt-4">
-              🤖 AI is analyzing your resume... Please wait.
+              <p className="text-muted mb-4">
+                Analyze your resume, discover skills, check ATS compatibility,
+                generate a career roadmap and practise interview questions.
+              </p>
             </div>
-          )}
 
-          {aiAnalysis && (
-            <div className="card mt-4 shadow-sm">
-              <div className="card-body">
-                <h4 className="fw-bold mb-3">🤖 AI Resume Analysis</h4>
+            {/* Upload */}
 
-                <div>
-                  <ReactMarkdown>{aiAnalysis}</ReactMarkdown>
-                </div>
-              </div>
+            <div className="mb-4">
+              <label className="form-label fw-semibold">Upload Resume</label>
+
+              <input
+                type="file"
+                className="form-control"
+                accept=".pdf"
+                onChange={handleFileChange}
+              />
             </div>
-          )}
-          {resumeText && (
-            <>
-              {/* Skills */}
 
-              <div className="mt-4">
-                <h4 className="fw-bold">🛠️ Skills Found</h4>
+            {resume && (
+              <p className="text-success text-center">
+                Selected: {resume.name}
+              </p>
+            )}
 
-                {skills.length > 0 ? (
-                  <div className="mt-3">
-                    {skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="badge bg-success me-2 mb-2 p-2"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-muted">
-                    No matching technical skills detected.
-                  </p>
-                )}
+            <button className="btn btn-primary w-100" onClick={handleAnalyze}>
+              🤖 Analyze Resume
+            </button>
+            {/* AI Resume Analysis */}
+
+            {aiLoading && (
+              <div className="alert alert-info mt-4">
+                🤖 AI is analyzing your resume... Please wait.
               </div>
+            )}
 
-              {/* Resume Score */}
+            {aiAnalysis && (
+              <div className="card mt-4 shadow-sm">
+                <div className="card-body">
+                  <h4 className="fw-bold mb-3">🤖 AI Resume Analysis</h4>
 
-              {score !== null && (
-                <div className="mt-4">
-                  <h4 className="fw-bold">📊 Resume Score</h4>
-
-                  <h1 className="text-primary fw-bold text-center mt-3">
-                    {score}/100
-                  </h1>
-
-                  <div className="progress mt-3" style={{ height: "25px" }}>
-                    <div
-                      className="progress-bar"
-                      style={{
-                        width: `${score}%`,
-                      }}
-                    >
-                      {score}%
-                    </div>
-                  </div>
-
-                  <div className="text-center mt-3">
-                    {score >= 80 ? (
-                      <p className="text-success fw-bold">
-                        🎉 Excellent Resume!
-                      </p>
-                    ) : score >= 60 ? (
-                      <p className="text-primary fw-bold">
-                        👍 Good Resume, but it can be improved.
-                      </p>
-                    ) : score >= 40 ? (
-                      <p className="text-warning fw-bold">
-                        ⚠️ Average Resume. Add more skills and projects.
-                      </p>
-                    ) : (
-                      <p className="text-danger fw-bold">
-                        ❌ Resume needs improvement.
-                      </p>
-                    )}
-                  </div>
-                </div>
-              )}
-
-              {/* Suggestions */}
-
-              <div className="mt-4">
-                <h4 className="fw-bold">💡 Resume Improvement Suggestions</h4>
-
-                <div className="alert alert-warning mt-3">
-                  <ul className="mb-0">
-                    {suggestions.map((suggestion, index) => (
-                      <li key={index} className="mb-2">
-                        {suggestion}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* Job Recommendations */}
-
-              <hr className="my-5" />
-
-              <div>
-                <h3 className="fw-bold">💼 Recommended Job Roles</h3>
-
-                <p className="text-muted">
-                  Job recommendations based on skills detected in your resume.
-                </p>
-
-                {recommendedJobs.slice(0, 4).map((job) => (
-                  <div className="card mb-3" key={job.role}>
-                    <div className="card-body">
-                      <div className="d-flex justify-content-between align-items-center gap-3">
-                        <h5 className="fw-bold mb-0">{job.role}</h5>
-
-                        <span
-                          className={`badge ${
-                            job.matchPercentage >= 70
-                              ? "bg-success"
-                              : job.matchPercentage >= 40
-                                ? "bg-warning text-dark"
-                                : "bg-danger"
-                          }`}
-                        >
-                          {job.matchPercentage}% Match
-                        </span>
-                      </div>
-
-                      <div className="progress mt-3" style={{ height: "20px" }}>
-                        <div
-                          className="progress-bar"
-                          style={{
-                            width: `${job.matchPercentage}%`,
-                          }}
-                        >
-                          {job.matchPercentage}%
-                        </div>
-                      </div>
-
-                      {job.matched.length > 0 && (
-                        <div className="mt-3">
-                          <strong className="text-success">
-                            ✅ Matching Skills:
-                          </strong>
-
-                          <div className="mt-2">
-                            {job.matched.map((skill) => (
-                              <span
-                                key={skill}
-                                className="badge bg-success me-2 mb-2"
-                              >
-                                {skill}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {job.missing.length > 0 && (
-                        <div className="mt-2">
-                          <strong className="text-danger">
-                            📚 Skills to Learn:
-                          </strong>
-
-                          <div className="mt-2">
-                            {job.missing.map((skill) => (
-                              <span
-                                key={skill}
-                                className="badge bg-danger me-2 mb-2"
-                              >
-                                {skill}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      <div className="row g-2 mt-2">
-                        <div className="col-md-6">
-                          <button
-                            className="btn btn-outline-primary w-100"
-                            onClick={() => generateRoadmap(job)}
-                          >
-                            🗺️ Career Roadmap
-                          </button>
-                        </div>
-
-                        <div className="col-md-6">
-                          <button
-                            className="btn btn-outline-dark w-100"
-                            onClick={() => generateInterviewQuestions(job.role)}
-                          >
-                            🎤 Interview Questions
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Career Roadmap */}
-
-              {roadmap.length > 0 && (
-                <div id="career-roadmap" className="mt-5">
-                  <hr className="mb-5" />
-
-                  <h3 className="fw-bold">🗺️ Personalized Career Roadmap</h3>
-
-                  <div className="alert alert-primary mt-3">
-                    <h5 className="fw-bold">
-                      🎯 Target Role: {selectedRoadmapRole}
-                    </h5>
-
-                    <p className="mb-0">
-                      Current Skill Match: <strong>{selectedRoleMatch}%</strong>
-                    </p>
-                  </div>
-
-                  <div className="mt-4">
-                    <div className="card shadow-sm">
-                      <div className="card-body">
-                        <ReactMarkdown>{String(roadmap || "")}</ReactMarkdown>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="alert alert-success text-center mt-4">
-                    <h4 className="fw-bold">🚀 Goal: Job Ready</h4>
-
-                    <p className="mb-0">
-                      Complete these steps and build real-world projects for
-                      your target role.
-                    </p>
-                  </div>
-                </div>
-              )}
-
-              {/* Interview Generator */}
-
-              <div id="interview-generator" className="mt-5">
-                <hr className="mb-5" />
-
-                <h3 className="fw-bold">🎤 Interview Question Generator</h3>
-
-                <p className="text-muted">
-                  Choose a job role and practise Easy, Medium and Hard interview
-                  questions.
-                </p>
-
-                <div className="d-flex gap-2 flex-wrap mb-4">
-                  <button
-                    className="btn btn-outline-primary"
-                    onClick={() => generateInterviewQuestions("Java Developer")}
-                  >
-                    Java Developer
-                  </button>
-
-                  <button
-                    className="btn btn-outline-primary"
-                    onClick={() =>
-                      generateInterviewQuestions("React Developer")
-                    }
-                  >
-                    React Developer
-                  </button>
-
-                  <button
-                    className="btn btn-outline-primary"
-                    onClick={() =>
-                      generateInterviewQuestions("Frontend Developer")
-                    }
-                  >
-                    Frontend
-                  </button>
-
-                  <button
-                    className="btn btn-outline-primary"
-                    onClick={() =>
-                      generateInterviewQuestions("Full Stack Developer")
-                    }
-                  >
-                    Full Stack
-                  </button>
-
-                  <button
-                    className="btn btn-outline-primary"
-                    onClick={() =>
-                      generateInterviewQuestions("Backend Developer")
-                    }
-                  >
-                    Backend
-                  </button>
-
-                  <button
-                    className="btn btn-outline-primary"
-                    onClick={() =>
-                      generateInterviewQuestions("Python Developer")
-                    }
-                  >
-                    Python
-                  </button>
-                </div>
-
-                {selectedInterviewRole && (
                   <div>
-                    <h4 className="fw-bold">
-                      🎯 {selectedInterviewRole} Interview Questions
-                    </h4>
-
-                    {interviewQuestions.map((item, index) => (
-                      <div className="card mt-3" key={index}>
-                        <div className="card-body">
-                          <span
-                            className={`badge ${
-                              item.level === "Easy"
-                                ? "bg-success"
-                                : item.level === "Medium"
-                                  ? "bg-warning text-dark"
-                                  : "bg-danger"
-                            }`}
-                          >
-                            {item.level}
-                          </span>
-
-                          <h5 className="mt-3">
-                            {index + 1}. {item.question}
-                          </h5>
-
-                          <details className="mt-3">
-                            <summary
-                              className="btn btn-sm btn-outline-dark"
-                              style={{
-                                cursor: "pointer",
-                              }}
-                            >
-                              👁️ Show Answer
-                            </summary>
-
-                            <div className="alert alert-light border mt-3 mb-0">
-                              <strong>Answer:</strong> {item.answer}
-                            </div>
-                          </details>
-                        </div>
-                      </div>
-                    ))}
+                    <ReactMarkdown>{aiAnalysis}</ReactMarkdown>
                   </div>
-                )}
+                </div>
               </div>
+            )}
+            {resumeText && (
+              <>
+                {/* Skills */}
 
-              {/* ATS Matcher */}
+                <div className="mt-4">
+                  <h4 className="fw-bold">🛠️ Skills Found</h4>
 
-              <hr className="my-5" />
+                  {skills.length > 0 ? (
+                    <div className="mt-3">
+                      {skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="badge bg-success me-2 mb-2 p-2"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-muted">
+                      No matching technical skills detected.
+                    </p>
+                  )}
+                </div>
 
-              <div>
-                <h3 className="fw-bold">🎯 ATS Job Description Matcher</h3>
+                {/* Resume Score */}
 
-                <p className="text-muted">
-                  Paste a job or internship description to check how well your
-                  resume matches it.
-                </p>
-
-                <label className="form-label fw-semibold">
-                  Job Description
-                </label>
-
-                <textarea
-                  className="form-control"
-                  rows="6"
-                  value={jobDescription}
-                  onChange={(e) => {
-                    setJobDescription(e.target.value);
-                    setAtsScore(null);
-                    setMatchedSkills([]);
-                    setMissingSkills([]);
-                  }}
-                  placeholder="Example: We are looking for a React Developer with knowledge of JavaScript, HTML, CSS, Node.js, Git and MongoDB..."
-                />
-
-                <button
-                  className="btn btn-dark w-100 mt-3"
-                  onClick={handleATSMatch}
-                >
-                  🎯 Check ATS Match
-                </button>
-
-                {atsScore !== null && (
+                {score !== null && (
                   <div className="mt-4">
-                    <h3 className="fw-bold text-center">🎯 ATS Match Score</h3>
+                    <h4 className="fw-bold">📊 Resume Score</h4>
 
                     <h1 className="text-primary fw-bold text-center mt-3">
-                      {atsScore}%
+                      {score}/100
                     </h1>
 
                     <div className="progress mt-3" style={{ height: "25px" }}>
                       <div
                         className="progress-bar"
                         style={{
-                          width: `${atsScore}%`,
+                          width: `${score}%`,
                         }}
                       >
-                        {atsScore}%
+                        {score}%
                       </div>
                     </div>
 
                     <div className="text-center mt-3">
-                      {atsScore >= 80 ? (
+                      {score >= 80 ? (
                         <p className="text-success fw-bold">
-                          🎉 Excellent Match!
+                          🎉 Excellent Resume!
                         </p>
-                      ) : atsScore >= 60 ? (
+                      ) : score >= 60 ? (
                         <p className="text-primary fw-bold">
-                          👍 Good Match. Add the missing relevant skills.
+                          👍 Good Resume, but it can be improved.
                         </p>
-                      ) : atsScore >= 40 ? (
+                      ) : score >= 40 ? (
                         <p className="text-warning fw-bold">
-                          ⚠️ Moderate Match. Improve the missing skills.
+                          ⚠️ Average Resume. Add more skills and projects.
                         </p>
                       ) : (
                         <p className="text-danger fw-bold">
-                          ❌ Low Match. Your resume needs more relevant skills.
-                        </p>
-                      )}
-                    </div>
-
-                    <div className="mt-4">
-                      <h5 className="fw-bold">✅ Matched Skills</h5>
-
-                      {matchedSkills.length > 0 ? (
-                        matchedSkills.map((skill) => (
-                          <span
-                            key={skill}
-                            className="badge bg-success me-2 mb-2 p-2"
-                          >
-                            {skill}
-                          </span>
-                        ))
-                      ) : (
-                        <p className="text-muted">No matching skills found.</p>
-                      )}
-                    </div>
-
-                    <div className="mt-3">
-                      <h5 className="fw-bold">❌ Missing Skills</h5>
-
-                      {missingSkills.length > 0 ? (
-                        missingSkills.map((skill) => (
-                          <span
-                            key={skill}
-                            className="badge bg-danger me-2 mb-2 p-2"
-                          >
-                            {skill}
-                          </span>
-                        ))
-                      ) : (
-                        <p className="text-success fw-bold">
-                          🎉 No important skills are missing!
+                          ❌ Resume needs improvement.
                         </p>
                       )}
                     </div>
                   </div>
                 )}
-              </div>
-            </>
-          )}
+
+                {/* Suggestions */}
+
+                <div className="mt-4">
+                  <h4 className="fw-bold">💡 Resume Improvement Suggestions</h4>
+
+                  <div className="alert alert-warning mt-3">
+                    <ul className="mb-0">
+                      {suggestions.map((suggestion, index) => (
+                        <li key={index} className="mb-2">
+                          {suggestion}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Job Recommendations */}
+
+                <hr className="my-5" />
+
+                <div>
+                  <h3 className="fw-bold">💼 Recommended Job Roles</h3>
+
+                  <p className="text-muted">
+                    Job recommendations based on skills detected in your resume.
+                  </p>
+
+                  {recommendedJobs.slice(0, 4).map((job) => (
+                    <div className="card mb-3" key={job.role}>
+                      <div className="card-body">
+                        <div className="d-flex justify-content-between align-items-center gap-3">
+                          <h5 className="fw-bold mb-0">{job.role}</h5>
+
+                          <span
+                            className={`badge ${
+                              job.matchPercentage >= 70
+                                ? "bg-success"
+                                : job.matchPercentage >= 40
+                                  ? "bg-warning text-dark"
+                                  : "bg-danger"
+                            }`}
+                          >
+                            {job.matchPercentage}% Match
+                          </span>
+                        </div>
+
+                        <div
+                          className="progress mt-3"
+                          style={{ height: "20px" }}
+                        >
+                          <div
+                            className="progress-bar"
+                            style={{
+                              width: `${job.matchPercentage}%`,
+                            }}
+                          >
+                            {job.matchPercentage}%
+                          </div>
+                        </div>
+
+                        {job.matched.length > 0 && (
+                          <div className="mt-3">
+                            <strong className="text-success">
+                              ✅ Matching Skills:
+                            </strong>
+
+                            <div className="mt-2">
+                              {job.matched.map((skill) => (
+                                <span
+                                  key={skill}
+                                  className="badge bg-success me-2 mb-2"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {job.missing.length > 0 && (
+                          <div className="mt-2">
+                            <strong className="text-danger">
+                              📚 Skills to Learn:
+                            </strong>
+
+                            <div className="mt-2">
+                              {job.missing.map((skill) => (
+                                <span
+                                  key={skill}
+                                  className="badge bg-danger me-2 mb-2"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="row g-2 mt-2">
+                          <div className="col-md-6">
+                            <button
+                              className="btn btn-outline-primary w-100"
+                              onClick={() => generateRoadmap(job)}
+                            >
+                              🗺️ Career Roadmap
+                            </button>
+                          </div>
+
+                          <div className="col-md-6">
+                            <button
+                              className="btn btn-outline-dark w-100"
+                              onClick={() =>
+                                generateInterviewQuestions(job.role)
+                              }
+                            >
+                              🎤 Interview Questions
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Career Roadmap */}
+
+                {roadmap.length > 0 && (
+                  <div id="career-roadmap" className="mt-5">
+                    <hr className="mb-5" />
+
+                    <h3 className="fw-bold">🗺️ Personalized Career Roadmap</h3>
+
+                    <div className="alert alert-primary mt-3">
+                      <h5 className="fw-bold">
+                        🎯 Target Role: {selectedRoadmapRole}
+                      </h5>
+
+                      <p className="mb-0">
+                        Current Skill Match:{" "}
+                        <strong>{selectedRoleMatch}%</strong>
+                      </p>
+                    </div>
+
+                    <div className="mt-4">
+                      <div className="card shadow-sm">
+                        <div className="card-body">
+                          <ReactMarkdown>{String(roadmap || "")}</ReactMarkdown>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="alert alert-success text-center mt-4">
+                      <h4 className="fw-bold">🚀 Goal: Job Ready</h4>
+
+                      <p className="mb-0">
+                        Complete these steps and build real-world projects for
+                        your target role.
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Interview Generator */}
+
+                <div id="interview-generator" className="mt-5">
+                  <hr className="mb-5" />
+
+                  <h3 className="fw-bold">🎤 Interview Question Generator</h3>
+
+                  <p className="text-muted">
+                    Choose a job role and practise Easy, Medium and Hard
+                    interview questions.
+                  </p>
+
+                  <div className="d-flex gap-2 flex-wrap mb-4">
+                    <button
+                      className="btn btn-outline-primary"
+                      onClick={() =>
+                        generateInterviewQuestions("Java Developer")
+                      }
+                    >
+                      Java Developer
+                    </button>
+
+                    <button
+                      className="btn btn-outline-primary"
+                      onClick={() =>
+                        generateInterviewQuestions("React Developer")
+                      }
+                    >
+                      React Developer
+                    </button>
+
+                    <button
+                      className="btn btn-outline-primary"
+                      onClick={() =>
+                        generateInterviewQuestions("Frontend Developer")
+                      }
+                    >
+                      Frontend
+                    </button>
+
+                    <button
+                      className="btn btn-outline-primary"
+                      onClick={() =>
+                        generateInterviewQuestions("Full Stack Developer")
+                      }
+                    >
+                      Full Stack
+                    </button>
+
+                    <button
+                      className="btn btn-outline-primary"
+                      onClick={() =>
+                        generateInterviewQuestions("Backend Developer")
+                      }
+                    >
+                      Backend
+                    </button>
+
+                    <button
+                      className="btn btn-outline-primary"
+                      onClick={() =>
+                        generateInterviewQuestions("Python Developer")
+                      }
+                    >
+                      Python
+                    </button>
+                  </div>
+
+                  {selectedInterviewRole && (
+                    <div>
+                      <h4 className="fw-bold">
+                        🎯 {selectedInterviewRole} Interview Questions
+                      </h4>
+
+                      {interviewQuestions.map((item, index) => (
+                        <div className="card mt-3" key={index}>
+                          <div className="card-body">
+                            <span
+                              className={`badge ${
+                                item.level === "Easy"
+                                  ? "bg-success"
+                                  : item.level === "Medium"
+                                    ? "bg-warning text-dark"
+                                    : "bg-danger"
+                              }`}
+                            >
+                              {item.level}
+                            </span>
+
+                            <h5 className="mt-3">
+                              {index + 1}. {item.question}
+                            </h5>
+
+                            <details className="mt-3">
+                              <summary
+                                className="btn btn-sm btn-outline-dark"
+                                style={{
+                                  cursor: "pointer",
+                                }}
+                              >
+                                👁️ Show Answer
+                              </summary>
+
+                              <div className="alert alert-light border mt-3 mb-0">
+                                <strong>Answer:</strong> {item.answer}
+                              </div>
+                            </details>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* ATS Matcher */}
+
+                <hr className="my-5" />
+
+                <div>
+                  <h3 className="fw-bold">🎯 ATS Job Description Matcher</h3>
+
+                  <p className="text-muted">
+                    Paste a job or internship description to check how well your
+                    resume matches it.
+                  </p>
+
+                  <label className="form-label fw-semibold">
+                    Job Description
+                  </label>
+
+                  <textarea
+                    className="form-control"
+                    rows="6"
+                    value={jobDescription}
+                    onChange={(e) => {
+                      setJobDescription(e.target.value);
+                      setAtsScore(null);
+                      setMatchedSkills([]);
+                      setMissingSkills([]);
+                    }}
+                    placeholder="Example: We are looking for a React Developer with knowledge of JavaScript, HTML, CSS, Node.js, Git and MongoDB..."
+                  />
+
+                  <button
+                    className="btn btn-dark w-100 mt-3"
+                    onClick={handleATSMatch}
+                  >
+                    🎯 Check ATS Match
+                  </button>
+
+                  {atsScore !== null && (
+                    <div className="mt-4">
+                      <h3 className="fw-bold text-center">
+                        🎯 ATS Match Score
+                      </h3>
+
+                      <h1 className="text-primary fw-bold text-center mt-3">
+                        {atsScore}%
+                      </h1>
+
+                      <div className="progress mt-3" style={{ height: "25px" }}>
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: `${atsScore}%`,
+                          }}
+                        >
+                          {atsScore}%
+                        </div>
+                      </div>
+
+                      <div className="text-center mt-3">
+                        {atsScore >= 80 ? (
+                          <p className="text-success fw-bold">
+                            🎉 Excellent Match!
+                          </p>
+                        ) : atsScore >= 60 ? (
+                          <p className="text-primary fw-bold">
+                            👍 Good Match. Add the missing relevant skills.
+                          </p>
+                        ) : atsScore >= 40 ? (
+                          <p className="text-warning fw-bold">
+                            ⚠️ Moderate Match. Improve the missing skills.
+                          </p>
+                        ) : (
+                          <p className="text-danger fw-bold">
+                            ❌ Low Match. Your resume needs more relevant
+                            skills.
+                          </p>
+                        )}
+                      </div>
+
+                      <div className="mt-4">
+                        <h5 className="fw-bold">✅ Matched Skills</h5>
+
+                        {matchedSkills.length > 0 ? (
+                          matchedSkills.map((skill) => (
+                            <span
+                              key={skill}
+                              className="badge bg-success me-2 mb-2 p-2"
+                            >
+                              {skill}
+                            </span>
+                          ))
+                        ) : (
+                          <p className="text-muted">
+                            No matching skills found.
+                          </p>
+                        )}
+                      </div>
+
+                      <div className="mt-3">
+                        <h5 className="fw-bold">❌ Missing Skills</h5>
+
+                        {missingSkills.length > 0 ? (
+                          missingSkills.map((skill) => (
+                            <span
+                              key={skill}
+                              className="badge bg-danger me-2 mb-2 p-2"
+                            >
+                              {skill}
+                            </span>
+                          ))
+                        ) : (
+                          <p className="text-success fw-bold">
+                            🎉 No important skills are missing!
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

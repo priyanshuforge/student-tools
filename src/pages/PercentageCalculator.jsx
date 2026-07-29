@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import SEO from "../components/SEO";
 function PercentageCalculator() {
   useEffect(() => {
     document.title = "Percentage Calculator Online | Calculate Percentage";
@@ -36,52 +37,60 @@ function PercentageCalculator() {
   };
 
   return (
-    <div className="container py-5">
-      <div className="card shadow-sm mx-auto" style={{ maxWidth: "650px" }}>
-        <div className="card-body p-4">
-          <h1 className="text-center mb-3">📊 Percentage Calculator</h1>
+    <>
+      <SEO
+        title="Percentage Calculator | Student Tools"
+        description="Free Percentage Calculator for students. Calculate percentages instantly with accurate results."
+        canonical="/percentage-calculator"
+      />
 
-          <p className="text-center text-muted mb-4">
-            Calculate your percentage from obtained and total marks.
-          </p>
+      <div className="container py-5">
+        <div className="card shadow-sm mx-auto" style={{ maxWidth: "650px" }}>
+          <div className="card-body p-4">
+            <h1 className="text-center mb-3">📊 Percentage Calculator</h1>
 
-          <div className="mb-3">
-            <label className="form-label">Obtained Marks</label>
-            <input
-              type="number"
-              className="form-control"
-              placeholder="Example: 450"
-              value={obtainedMarks}
-              onChange={(e) => setObtainedMarks(e.target.value)}
-            />
-          </div>
+            <p className="text-center text-muted mb-4">
+              Calculate your percentage from obtained and total marks.
+            </p>
 
-          <div className="mb-3">
-            <label className="form-label">Total Marks</label>
-            <input
-              type="number"
-              className="form-control"
-              placeholder="Example: 500"
-              value={totalMarks}
-              onChange={(e) => setTotalMarks(e.target.value)}
-            />
-          </div>
-
-          <button
-            className="btn btn-primary w-100"
-            onClick={calculatePercentage}
-          >
-            Calculate Percentage
-          </button>
-
-          {percentage !== null && (
-            <div className="alert alert-success text-center mt-4">
-              <h3 className="mb-0">Your Percentage: {percentage}%</h3>
+            <div className="mb-3">
+              <label className="form-label">Obtained Marks</label>
+              <input
+                type="number"
+                className="form-control"
+                placeholder="Example: 450"
+                value={obtainedMarks}
+                onChange={(e) => setObtainedMarks(e.target.value)}
+              />
             </div>
-          )}
+
+            <div className="mb-3">
+              <label className="form-label">Total Marks</label>
+              <input
+                type="number"
+                className="form-control"
+                placeholder="Example: 500"
+                value={totalMarks}
+                onChange={(e) => setTotalMarks(e.target.value)}
+              />
+            </div>
+
+            <button
+              className="btn btn-primary w-100"
+              onClick={calculatePercentage}
+            >
+              Calculate Percentage
+            </button>
+
+            {percentage !== null && (
+              <div className="alert alert-success text-center mt-4">
+                <h3 className="mb-0">Your Percentage: {percentage}%</h3>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

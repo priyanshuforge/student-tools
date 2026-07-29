@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import SEO from "../components/SEO";
 function SGPACalculator() {
   useEffect(() => {
     document.title = "SGPA Calculator Online | Calculate Semester GPA";
@@ -55,55 +55,64 @@ function SGPACalculator() {
   };
 
   return (
-    <div className="container mt-5 mb-5">
-      <div className="card shadow p-4 mx-auto" style={{ maxWidth: "700px" }}>
-        <h1 className="text-center mb-3">📚 SGPA Calculator</h1>
+    <>
+      <SEO
+        title="SGPA Calculator | Student Tools"
+        description="Free SGPA Calculator. Calculate your semester GPA easily using subject credits and grades."
+        canonical="/sgpa-calculator"
+      />
+      <div className="container mt-5 mb-5">
+        <div className="card shadow p-4 mx-auto" style={{ maxWidth: "700px" }}>
+          <h1 className="text-center mb-3">📚 SGPA Calculator</h1>
 
-        <p className="text-center text-muted">
-          Enter credit and grade point for each subject.
-        </p>
+          <p className="text-center text-muted">
+            Enter credit and grade point for each subject.
+          </p>
 
-        {subjects.map((subject, index) => (
-          <div className="row mb-3" key={index}>
-            <div className="col-md-6 mb-2">
-              <input
-                type="number"
-                className="form-control"
-                placeholder={`Subject ${index + 1} Credit`}
-                value={subject.credit}
-                onChange={(e) => handleChange(index, "credit", e.target.value)}
-              />
+          {subjects.map((subject, index) => (
+            <div className="row mb-3" key={index}>
+              <div className="col-md-6 mb-2">
+                <input
+                  type="number"
+                  className="form-control"
+                  placeholder={`Subject ${index + 1} Credit`}
+                  value={subject.credit}
+                  onChange={(e) =>
+                    handleChange(index, "credit", e.target.value)
+                  }
+                />
+              </div>
+
+              <div className="col-md-6">
+                <input
+                  type="number"
+                  className="form-control"
+                  placeholder="Grade Point (0-10)"
+                  min="0"
+                  max="10"
+                  value={subject.grade}
+                  onChange={(e) => handleChange(index, "grade", e.target.value)}
+                />
+              </div>
             </div>
+          ))}
 
-            <div className="col-md-6">
-              <input
-                type="number"
-                className="form-control"
-                placeholder="Grade Point (0-10)"
-                min="0"
-                max="10"
-                value={subject.grade}
-                onChange={(e) => handleChange(index, "grade", e.target.value)}
-              />
+          <button className="btn btn-outline-primary mb-3" onClick={addSubject}>
+            + Add Subject
+          </button>
+
+          <button className="btn btn-primary" onClick={calculateSGPA}>
+            Calculate SGPA
+          </button>
+
+          {sgpa !== null && (
+            <div className="alert alert-success text-center mt-4">
+              <strong>Your SGPA: {sgpa}</strong>
             </div>
-          </div>
-        ))}
-
-        <button className="btn btn-outline-primary mb-3" onClick={addSubject}>
-          + Add Subject
-        </button>
-
-        <button className="btn btn-primary" onClick={calculateSGPA}>
-          Calculate SGPA
-        </button>
-
-        {sgpa !== null && (
-          <div className="alert alert-success text-center mt-4">
-            <strong>Your SGPA: {sgpa}</strong>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

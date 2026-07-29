@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import SEO from "../components/SEO";
 function AttendanceCalculator() {
   useEffect(() => {
     document.title =
@@ -58,86 +58,95 @@ function AttendanceCalculator() {
   };
 
   return (
-    <div className="container py-5">
-      <div className="row justify-content-center">
-        <div className="col-md-6">
-          <div className="card shadow">
-            <div className="card-body p-4">
-              <h1 className="text-center mb-3">📅 Attendance Calculator</h1>
+    <>
+      <SEO
+        title="Attendance Calculator | Student Tools"
+        description="Free Attendance Calculator. Check your attendance percentage and know how many classes you need to attend or can miss."
+        canonical="/attendance-calculator"
+      />
 
-              <p className="text-center text-muted">
-                Calculate your attendance and plan for 75%.
-              </p>
+      {/* Existing JSX */}
+      <div className="container py-5">
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div className="card shadow">
+              <div className="card-body p-4">
+                <h1 className="text-center mb-3">📅 Attendance Calculator</h1>
 
-              <div className="mb-3">
-                <label className="form-label">Total Classes</label>
+                <p className="text-center text-muted">
+                  Calculate your attendance and plan for 75%.
+                </p>
 
-                <input
-                  type="number"
-                  className="form-control"
-                  placeholder="Example: 100"
-                  value={totalClasses}
-                  onChange={(e) => setTotalClasses(e.target.value)}
-                />
-              </div>
+                <div className="mb-3">
+                  <label className="form-label">Total Classes</label>
 
-              <div className="mb-3">
-                <label className="form-label">Classes Attended</label>
-
-                <input
-                  type="number"
-                  className="form-control"
-                  placeholder="Example: 70"
-                  value={attendedClasses}
-                  onChange={(e) => setAttendedClasses(e.target.value)}
-                />
-              </div>
-
-              <div className="d-grid gap-2">
-                <button
-                  className="btn btn-success"
-                  onClick={calculateAttendance}
-                >
-                  Calculate Attendance
-                </button>
-
-                <button
-                  className="btn btn-outline-secondary"
-                  onClick={resetCalculator}
-                >
-                  Reset
-                </button>
-              </div>
-
-              {result && (
-                <div className="mt-4">
-                  <div className="alert alert-primary text-center">
-                    <h5>Current Attendance</h5>
-                    <h2>{result.percentage}%</h2>
-                  </div>
-
-                  {Number(result.percentage) < 75 ? (
-                    <div className="alert alert-warning text-center">
-                      ⚠️ You need to attend the next{" "}
-                      <strong>{result.classesNeeded} classes</strong>{" "}
-                      continuously to reach 75%.
-                    </div>
-                  ) : (
-                    <div className="alert alert-success text-center">
-                      ✅ You have 75% or more attendance.
-                      <br />
-                      You can currently miss{" "}
-                      <strong>{result.classesCanMiss} classes</strong> and
-                      remain at or above 75%.
-                    </div>
-                  )}
+                  <input
+                    type="number"
+                    className="form-control"
+                    placeholder="Example: 100"
+                    value={totalClasses}
+                    onChange={(e) => setTotalClasses(e.target.value)}
+                  />
                 </div>
-              )}
+
+                <div className="mb-3">
+                  <label className="form-label">Classes Attended</label>
+
+                  <input
+                    type="number"
+                    className="form-control"
+                    placeholder="Example: 70"
+                    value={attendedClasses}
+                    onChange={(e) => setAttendedClasses(e.target.value)}
+                  />
+                </div>
+
+                <div className="d-grid gap-2">
+                  <button
+                    className="btn btn-success"
+                    onClick={calculateAttendance}
+                  >
+                    Calculate Attendance
+                  </button>
+
+                  <button
+                    className="btn btn-outline-secondary"
+                    onClick={resetCalculator}
+                  >
+                    Reset
+                  </button>
+                </div>
+
+                {result && (
+                  <div className="mt-4">
+                    <div className="alert alert-primary text-center">
+                      <h5>Current Attendance</h5>
+                      <h2>{result.percentage}%</h2>
+                    </div>
+
+                    {Number(result.percentage) < 75 ? (
+                      <div className="alert alert-warning text-center">
+                        ⚠️ You need to attend the next{" "}
+                        <strong>{result.classesNeeded} classes</strong>{" "}
+                        continuously to reach 75%.
+                      </div>
+                    ) : (
+                      <div className="alert alert-success text-center">
+                        ✅ You have 75% or more attendance.
+                        <br />
+                        You can currently miss{" "}
+                        <strong>{result.classesCanMiss} classes</strong> and
+                        remain at or above 75%.
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
