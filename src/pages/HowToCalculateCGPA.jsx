@@ -98,6 +98,19 @@ function HowToCalculateCGPA() {
         <Link className="btn btn-primary" to="/cgpa-calculator">
           Open CGPA Calculator
         </Link>
+        <h2 className="mt-5">Related Tools & Guides</h2>
+
+        <ul>
+          <li>
+            <Link to="/cgpa-calculator">CGPA Calculator</Link>
+          </li>
+          <li>
+            <Link to="/sgpa-calculator">SGPA Calculator</Link>
+          </li>
+          <li>
+            <Link to="/blog/cgpa-to-percentage">CGPA to Percentage</Link>
+          </li>
+        </ul>
       </div>
     </>
   );

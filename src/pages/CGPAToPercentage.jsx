@@ -149,6 +149,19 @@ function CGPAToPercentage() {
           accurate results, and always verify the official conversion rule if
           your university provides a different formula.
         </p>
+        <h2 className="mt-5">Related Tools & Guides</h2>
+
+        <ul>
+          <li>
+            <a href="/cgpa-calculator">CGPA Calculator</a>
+          </li>
+          <li>
+            <a href="/percentage-calculator">Percentage Calculator</a>
+          </li>
+          <li>
+            <a href="/blog/how-to-calculate-cgpa">How to Calculate CGPA</a>
+          </li>
+        </ul>
       </div>
     </>
   );
