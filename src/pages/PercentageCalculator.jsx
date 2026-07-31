@@ -90,6 +90,64 @@ function PercentageCalculator() {
           </div>
         </div>
       </div>
+      <div className="container mt-5">
+        <h2>Percentage Calculator</h2>
+
+        <p>
+          This free Percentage Calculator helps students calculate their
+          percentage from obtained marks and total marks instantly. Simply enter
+          your marks and total marks to get accurate results.
+        </p>
+
+        <h2>Percentage Formula</h2>
+
+        <div className="alert alert-info">
+          Percentage = (Obtained Marks ÷ Total Marks) × 100
+        </div>
+
+        <h2>Example</h2>
+
+        <p>Suppose a student scores:</p>
+
+        <ul>
+          <li>Obtained Marks = 450</li>
+          <li>Total Marks = 500</li>
+        </ul>
+
+        <p>
+          Percentage = (450 ÷ 500) × 100 =<strong> 90%</strong>
+        </p>
+
+        <h2>Why use this Percentage Calculator?</h2>
+
+        <ul>
+          <li>Instant calculation</li>
+          <li>100% free</li>
+          <li>Mobile friendly</li>
+          <li>Accurate results</li>
+          <li>No signup required</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h4>How do I calculate percentage?</h4>
+
+        <p>
+          Divide the obtained marks by the total marks and multiply the result
+          by 100.
+        </p>
+
+        <h4>Can I calculate exam percentage?</h4>
+
+        <p>
+          Yes. This calculator works for school exams, college exams, university
+          results, and competitive tests.
+        </p>
+
+        <h4>Is this calculator free?</h4>
+
+        <p>Yes. It is completely free and works on all devices.</p>
+      </div>
     </>
   );
 }
