@@ -112,6 +112,72 @@ function SGPACalculator() {
           )}
         </div>
       </div>
+      <div className="container mt-5">
+        <h2>SGPA Calculator</h2>
+
+        <p>
+          This free SGPA Calculator helps students calculate their Semester
+          Grade Point Average quickly and accurately. Enter your subject credits
+          and grade points to get your SGPA instantly.
+        </p>
+
+        <h2>SGPA Formula</h2>
+
+        <div className="alert alert-info">
+          SGPA = Sum of (Credit × Grade Point) ÷ Total Credits
+        </div>
+
+        <h2>Example</h2>
+
+        <p>Suppose you have the following subjects:</p>
+
+        <ul>
+          <li>Subject 1: Credit = 4, Grade Point = 9</li>
+          <li>Subject 2: Credit = 3, Grade Point = 8</li>
+          <li>Subject 3: Credit = 3, Grade Point = 10</li>
+        </ul>
+
+        <p>
+          Total Credit Points = (4 × 9) + (3 × 8) + (3 × 10) = 90
+          <br />
+          Total Credits = 10
+          <br />
+          <strong>SGPA = 90 ÷ 10 = 9.0</strong>
+        </p>
+
+        <h2>Benefits of using this SGPA Calculator</h2>
+
+        <ul>
+          <li>Fast and accurate calculations</li>
+          <li>Supports multiple subjects</li>
+          <li>Works on mobile and desktop</li>
+          <li>Completely free to use</li>
+          <li>No registration required</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h4>What is SGPA?</h4>
+
+        <p>
+          SGPA (Semester Grade Point Average) represents your academic
+          performance in a single semester based on credits and grade points.
+        </p>
+
+        <h4>Is SGPA the same as CGPA?</h4>
+
+        <p>
+          No. SGPA is calculated for one semester, whereas CGPA is the
+          cumulative average of all semesters.
+        </p>
+
+        <h4>Can I use this calculator for any university?</h4>
+
+        <p>
+          Yes. As long as your university uses the credit and grade point
+          system, this calculator can be used.
+        </p>
+      </div>
     </>
   );
 }
