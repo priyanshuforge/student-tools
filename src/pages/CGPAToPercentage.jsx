@@ -1,4 +1,5 @@
 import SEO from "../components/SEO";
+import { Link } from "react-router-dom";
 
 function CGPAToPercentage() {
   return (
@@ -153,13 +154,13 @@ function CGPAToPercentage() {
 
         <ul>
           <li>
-            <a href="/cgpa-calculator">CGPA Calculator</a>
+            <Link to="/cgpa-calculator">CGPA Calculator</Link>
           </li>
           <li>
-            <a href="/percentage-calculator">Percentage Calculator</a>
+            <Link to="/percentage-calculator">Percentage Calculator</Link>
           </li>
           <li>
-            <a href="/blog/how-to-calculate-cgpa">How to Calculate CGPA</a>
+            <Link to="/blog/how-to-calculate-cgpa">How to Calculate CGPA</Link>
           </li>
         </ul>
       </div>
