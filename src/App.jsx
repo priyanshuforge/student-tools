@@ -13,6 +13,12 @@ import PercentageCalculator from "./pages/PercentageCalculator";
 import AverageCalculator from "./pages/AverageCalculator";
 import AgeCalculator from "./pages/AgeCalculator";
 import ResumeAnalyzer from "./pages/ResumeAnalyzer";
+import Blog from "./pages/Blog";
+import HowToCalculateCGPA from "./pages/HowToCalculateCGPA";
+import CGPAvsSGPA from "./pages/CGPAvsSGPA";
+import CGPAToPercentage from "./pages/CGPAToPercentage";
+import Attendance75Rule from "./pages/Attendance75Rule";
+import AttendancePercentage from "./pages/AttendancePercentage";
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +34,14 @@ function App() {
         <Route path="/average-calculator" element={<AverageCalculator />} />
         <Route path="/resume-analyzer" element={<ResumeAnalyzer />} />
         <Route path="/age-calculator" element={<AgeCalculator />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/cgpa-vs-sgpa" element={<CGPAvsSGPA />} />
+        <Route path="/blog/cgpa-to-percentage" element={<CGPAToPercentage />} />
+        <Route
+          path="/blog/how-to-calculate-cgpa"
+          element={<HowToCalculateCGPA />}
+        />
+        <Route path="/blog/75-attendance-rule" element={<Attendance75Rule />} />
         <Route
           path="/percentage-calculator"
           element={<PercentageCalculator />}
@@ -35,6 +49,10 @@ function App() {
         <Route
           path="/attendance-calculator"
           element={<AttendanceCalculator />}
+        />
+        <Route
+          path="/blog/attendance-percentage"
+          element={<AttendancePercentage />}
         />
       </Routes>
       <Footer />

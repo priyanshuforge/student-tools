@@ -88,7 +88,23 @@ function Home() {
               </div>
             </div>
           </div>
+          {/* Student Blog */}
+          <div className="col-md-5">
+            <div className="card shadow-sm h-100">
+              <div className="card-body text-center p-4">
+                <h2>📝 Student Blog</h2>
 
+                <p className="text-muted">
+                  Helpful articles on CGPA, SGPA, exams, careers, study tips and
+                  more.
+                </p>
+
+                <Link to="/blog" className="btn btn-dark">
+                  Read Articles
+                </Link>
+              </div>
+            </div>
+          </div>
           {/* Average Calculator */}
           <div className="col-md-5">
             <div className="card shadow-sm h-100">
