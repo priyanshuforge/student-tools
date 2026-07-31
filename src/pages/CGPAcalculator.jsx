@@ -159,6 +159,67 @@ function CGPACalculator() {
           </div>
         </div>
       </div>
+      <div className="container mt-5">
+        <h2>What is CGPA?</h2>
+        <p>
+          CGPA (Cumulative Grade Point Average) is the average of grade points
+          obtained across all semesters. Many schools, colleges, and
+          universities use CGPA instead of percentage to evaluate academic
+          performance.
+        </p>
+
+        <h2>How to Convert CGPA into Percentage?</h2>
+        <p>
+          Most universities convert CGPA into percentage using a multiplier. For
+          example:
+        </p>
+
+        <div className="alert alert-info">
+          Percentage = CGPA × Conversion Factor
+        </div>
+
+        <p>If your university follows the CBSE formula, the conversion is:</p>
+
+        <div className="alert alert-success">Percentage = CGPA × 9.5</div>
+
+        <h2>Example</h2>
+
+        <p>
+          Suppose your CGPA is <strong>8.2</strong>.
+        </p>
+
+        <ul>
+          <li>CGPA = 8.2</li>
+          <li>Multiplier = 9.5</li>
+        </ul>
+
+        <p>
+          Percentage = 8.2 × 9.5 =<strong> 77.90%</strong>
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h4>Is 9.5 formula valid for every university?</h4>
+
+        <p>
+          No. Different universities may use different conversion formulas.
+          Always verify your university guidelines.
+        </p>
+
+        <h4>Can I use a custom multiplier?</h4>
+
+        <p>
+          Yes. This calculator lets you enter your own multiplier if your
+          institution follows a different conversion rule.
+        </p>
+
+        <h4>What is a good CGPA?</h4>
+
+        <p>
+          Generally, a CGPA above 8 is considered very good, while 9+ is
+          considered excellent in most institutions.
+        </p>
+      </div>
     </>
   );
 }
