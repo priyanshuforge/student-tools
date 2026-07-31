@@ -146,6 +146,65 @@ function AttendanceCalculator() {
           </div>
         </div>
       </div>
+      <div className="container mt-5">
+        <h2>Attendance Percentage Calculator</h2>
+
+        <p>
+          This Attendance Calculator helps students calculate their current
+          attendance percentage and estimate how many classes they need to
+          attend to reach the required attendance percentage.
+        </p>
+
+        <h2>Attendance Formula</h2>
+
+        <div className="alert alert-info">
+          Attendance % = (Classes Attended ÷ Total Classes) × 100
+        </div>
+
+        <h2>Example</h2>
+
+        <p>Suppose you have:</p>
+
+        <ul>
+          <li>Total Classes = 100</li>
+          <li>Classes Attended = 72</li>
+        </ul>
+
+        <p>
+          Attendance = (72 ÷ 100) × 100 =<strong> 72%</strong>
+        </p>
+
+        <h2>How many classes are needed to reach 75% attendance?</h2>
+
+        <p>
+          If your attendance is below the required percentage, this calculator
+          estimates the minimum number of consecutive classes you need to attend
+          to reach your target.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h4>How is attendance percentage calculated?</h4>
+
+        <p>
+          Divide the number of attended classes by the total classes and
+          multiply by 100.
+        </p>
+
+        <h4>Can I calculate attendance required for 75%?</h4>
+
+        <p>
+          Yes. This calculator automatically estimates the number of additional
+          classes required to reach your target attendance.
+        </p>
+
+        <h4>Does this work for college and school students?</h4>
+
+        <p>
+          Yes. It works for schools, colleges, universities, coaching
+          institutes, and other educational institutions.
+        </p>
+      </div>
     </>
   );
 }
