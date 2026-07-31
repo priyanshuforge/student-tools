@@ -78,6 +78,66 @@ function AgeCalculator() {
           </div>
         </div>
       </div>
+      <div className="container mt-5">
+        <h2>Age Calculator</h2>
+
+        <p>
+          This free Age Calculator helps you calculate your exact age in years,
+          months, and days from your date of birth. It provides accurate age
+          calculations instantly.
+        </p>
+
+        <h2>How is Age Calculated?</h2>
+
+        <p>
+          Age is calculated by comparing your date of birth with today's date.
+          The calculator determines the exact difference in years, months, and
+          days.
+        </p>
+
+        <h2>Example</h2>
+
+        <ul>
+          <li>Date of Birth: 15 August 2005</li>
+          <li>Current Date: 31 July 2026</li>
+        </ul>
+
+        <p>Your age would be approximately:</p>
+
+        <div className="alert alert-info">20 Years, 11 Months, 16 Days</div>
+
+        <h2>Why use this Age Calculator?</h2>
+
+        <ul>
+          <li>Instant and accurate results</li>
+          <li>Calculates years, months, and days</li>
+          <li>Free to use</li>
+          <li>Works on mobile and desktop</li>
+          <li>No registration required</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h4>How do I calculate my age?</h4>
+
+        <p>
+          Enter your date of birth and the calculator will automatically
+          calculate your exact age.
+        </p>
+
+        <h4>Is this calculator accurate?</h4>
+
+        <p>
+          Yes. It calculates age based on calendar dates, including leap years.
+        </p>
+
+        <h4>Can I calculate age for any date?</h4>
+
+        <p>
+          Yes. You can calculate age as of today or for a specific date if your
+          calculator supports it.
+        </p>
+      </div>
     </>
   );
 }
