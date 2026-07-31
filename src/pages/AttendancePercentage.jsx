@@ -48,6 +48,75 @@ function AttendancePercentage() {
           Our Attendance Calculator instantly tells you your attendance and how
           many classes you need to attend.
         </p>
+        <h2 className="mt-5">Attendance Percentage Calculator Formula</h2>
+
+        <p>The standard attendance percentage formula is:</p>
+
+        <div className="alert alert-success">
+          <strong>
+            Attendance % = (Classes Attended ÷ Total Classes) × 100
+          </strong>
+        </div>
+
+        <h2>Attendance Percentage Table</h2>
+
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <th>Classes Attended</th>
+              <th>Total Classes</th>
+              <th>Attendance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>45</td>
+              <td>50</td>
+              <td>90%</td>
+            </tr>
+            <tr>
+              <td>72</td>
+              <td>80</td>
+              <td>90%</td>
+            </tr>
+            <tr>
+              <td>96</td>
+              <td>120</td>
+              <td>80%</td>
+            </tr>
+            <tr>
+              <td>150</td>
+              <td>180</td>
+              <td>83.33%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h4>How do I calculate attendance percentage?</h4>
+        <p>
+          Divide the number of classes attended by the total number of classes
+          and multiply the result by 100.
+        </p>
+
+        <h4>What is the minimum attendance required?</h4>
+        <p>
+          Many schools and universities require at least 75% attendance, but the
+          requirement varies by institution.
+        </p>
+
+        <h4>How much attendance is 90 out of 120 classes?</h4>
+        <p>(90 ÷ 120) × 100 = 75% attendance.</p>
+
+        <h2>Conclusion</h2>
+
+        <p>
+          Attendance percentage helps students monitor eligibility for exams and
+          maintain academic requirements. You can also use our Attendance
+          Calculator to instantly calculate your attendance without doing manual
+          calculations.
+        </p>
       </div>
     </>
   );
