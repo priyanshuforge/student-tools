@@ -29,6 +29,12 @@ const blogData = [
     description:
       "Calculate attendance percentage easily with formula and examples.",
   },
+  {
+  slug: "percentage-to-cgpa",
+  title: "How to Convert Percentage to CGPA?",
+  description:
+    "Easy guide to convert percentage into CGPA using simple formulas and examples.",
+},
 ];
 
 export default blogData;

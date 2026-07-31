@@ -19,6 +19,7 @@ import CGPAvsSGPA from "./pages/CGPAvsSGPA";
 import CGPAToPercentage from "./pages/CGPAToPercentage";
 import Attendance75Rule from "./pages/Attendance75Rule";
 import AttendancePercentage from "./pages/AttendancePercentage";
+import PercentageToCGPA from "./pages/PercentageToCGPA";
 function App() {
   return (
     <BrowserRouter>
@@ -46,6 +47,7 @@ function App() {
           path="/percentage-calculator"
           element={<PercentageCalculator />}
         />
+        <Route path="/blog/percentage-to-cgpa" element={<PercentageToCGPA />} />
         <Route
           path="/attendance-calculator"
           element={<AttendanceCalculator />}
