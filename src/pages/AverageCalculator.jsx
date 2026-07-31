@@ -88,6 +88,58 @@ function AverageCalculator() {
                 <strong>Average Marks: {average}</strong>
               </div>
             )}
+            <div className="mt-5">
+              <h2>How to Calculate Average Marks?</h2>
+
+              <p>
+                Average marks are calculated by adding the marks of all subjects
+                and dividing the total by the number of subjects.
+              </p>
+
+              <h3>Formula</h3>
+
+              <div className="alert alert-info">
+                Average = Total Marks ÷ Number of Subjects
+              </div>
+
+              <h3>Example</h3>
+
+              <p>Suppose your marks are:</p>
+
+              <ul>
+                <li>Math = 80</li>
+                <li>Physics = 90</li>
+                <li>Chemistry = 70</li>
+              </ul>
+
+              <p>
+                Total = 80 + 90 + 70 = 240
+                <br />
+                Average = 240 ÷ 3 = <strong>80</strong>
+              </p>
+
+              <h3>Why use this calculator?</h3>
+
+              <ul>
+                <li>Instant average calculation</li>
+                <li>No manual mistakes</li>
+                <li>Unlimited subjects</li>
+                <li>Free and easy to use</li>
+              </ul>
+
+              <h3>Frequently Asked Questions</h3>
+
+              <h5>Can I calculate the average of 10 or more subjects?</h5>
+              <p>
+                Yes. Click "Add Subject" to include as many subjects as you
+                want.
+              </p>
+
+              <h5>Does this calculator work for percentage marks?</h5>
+              <p>
+                Yes. It works with marks, percentages, and any numerical values.
+              </p>
+            </div>
           </div>
         </div>
       </div>
