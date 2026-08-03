@@ -9,7 +9,41 @@ function HowToCalculatePercentage() {
         description="Learn how to calculate percentage with simple formulas, solved examples, percentage increase, decrease and exam percentage calculation."
         canonical="/blog/how-to-calculate-percentage"
       />
-
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "How do I calculate percentage?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Percentage = (Obtained Marks ÷ Total Marks) × 100.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "How do you calculate exam percentage?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Divide obtained marks by total marks and multiply by 100.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "What is 450 out of 500 in percentage?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "450 out of 500 equals 90%.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
       <div className="container py-5" style={{ maxWidth: "900px" }}>
         {/* Yahan se article content aayega */}
         <h1 className="mb-4">How to Calculate Percentage?</h1>
