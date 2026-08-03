@@ -12,6 +12,12 @@ const blogData = [
       "Understand the difference between CGPA and SGPA with simple examples.",
   },
   {
+  slug: "how-to-calculate-percentage",
+  title: "How to Calculate Percentage?",
+  description:
+    "Learn how to calculate percentage using formula, examples and step-by-step guide.",
+},
+  {
     slug: "cgpa-to-percentage",
     title: "How to Convert CGPA to Percentage?",
     description:
