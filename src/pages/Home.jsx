@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
+import blogData from "../data/blogData";
 
 function Home() {
   return (
@@ -138,6 +139,30 @@ function Home() {
             </div>
           </div>
         </div>
+      </div>
+      <hr className="my-5" />
+
+      <h2 className="text-center mb-4">Latest Student Articles</h2>
+
+      <div className="row g-4">
+        {blogData.slice(0, 4).map((blog) => (
+          <div className="col-md-6" key={blog.slug}>
+            <div className="card h-100 shadow-sm">
+              <div className="card-body">
+                <h4>{blog.title}</h4>
+
+                <p>{blog.description}</p>
+
+                <Link
+                  to={`/blog/${blog.slug}`}
+                  className="btn btn-outline-primary"
+                >
+                  Read Article →
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );
