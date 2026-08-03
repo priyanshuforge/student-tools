@@ -9,7 +9,31 @@ function HowToCalculateCGPA() {
         description="Learn how to calculate CGPA step by step with formula, examples, percentage conversion, and FAQs."
         canonical="/blog/how-to-calculate-cgpa"
       />
-
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "How to Calculate CGPA?",
+            description:
+              "Learn how to calculate CGPA with formula, examples and easy step-by-step guide.",
+            author: {
+              "@type": "Organization",
+              name: "StudentTools",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "StudentTools",
+            },
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id":
+                "https://student-tools-lskk.onrender.com/blog/how-to-calculate-cgpa",
+            },
+          }),
+        }}
+      />
       <div className="container py-5" style={{ maxWidth: "900px" }}>
         <h1 className="mb-4">How to Calculate CGPA?</h1>
 
