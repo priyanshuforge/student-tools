@@ -32,8 +32,18 @@ function Blog() {
         }}
       />
       <div className="container py-5">
-        <h1 className="mb-4 text-center">Student Blog</h1>
+        <nav aria-label="breadcrumb" className="mb-3">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="breadcrumb-item active" aria-current="page">
+              Blog
+            </li>
+          </ol>
+        </nav>
 
+        <h1 className="mb-4 text-center">Student Blog</h1>
         {blogs.map((blog, index) => (
           <div className="card shadow-sm mb-4" key={index}>
             <div className="card-body">
