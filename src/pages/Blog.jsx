@@ -1,64 +1,45 @@
-import SEO from "../components/SEO";
 import { Link } from "react-router-dom";
 import blogData from "../data/blogData";
-function Blog() {
-  const blogs = blogData.map((blog) => ({
-    ...blog,
-    link: `/blog/${blog.slug}`,
-  }));
+import SEO from "../components/SEO";
+
+const Blog = () => {
   return (
     <>
       <SEO
-        title="Student Blog | StudentTools"
-        description="Helpful guides for CGPA, SGPA, Attendance, Percentage and student career."
-        canonical="/blog"
+        title="Student Blogs | CGPA, SGPA, Attendance & Career Guides"
+        description="Read useful student guides about CGPA, SGPA, percentage, attendance and academic tools."
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            name: "StudentTools Educational Articles",
-            description:
-              "Educational articles about CGPA, SGPA, attendance, percentage and student tools.",
-            itemListElement: blogs.map((blog, index) => ({
-              "@type": "ListItem",
-              position: index + 1,
-              name: blog.title,
-              url: `https://student-tools-lskk.onrender.com${blog.link}`,
-            })),
-          }),
-        }}
-      />
+
       <div className="container py-5">
-        <nav aria-label="breadcrumb" className="mb-3">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              Blog
-            </li>
-          </ol>
-        </nav>
+        <h1 className="text-center mb-3">📚 Student Blogs</h1>
 
-        <h1 className="mb-4 text-center">Student Blog</h1>
-        {blogs.map((blog, index) => (
-          <div className="card shadow-sm mb-4" key={index}>
-            <div className="card-body">
-              <h3>{blog.title}</h3>
-              <p>{blog.description}</p>
+        <p className="text-center text-muted mb-5">
+          Helpful guides, formulas and tips for students
+        </p>
 
-              <Link to={blog.link} className="btn btn-primary">
-                Read Article
-              </Link>
+        <div className="row g-4">
+          {blogData.map((blog) => (
+            <div className="col-md-6 col-lg-4" key={blog.slug}>
+              <div className="card h-100 shadow-sm border-0">
+                <div className="card-body d-flex flex-column">
+                  <h2 className="h5 card-title">{blog.title}</h2>
+
+                  <p className="card-text text-muted">{blog.description}</p>
+
+                  <Link
+                    to={`/blog/${blog.slug}`}
+                    className="btn btn-primary mt-auto"
+                  >
+                    Read Article →
+                  </Link>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
   );
-}
+};
 
 export default Blog;
