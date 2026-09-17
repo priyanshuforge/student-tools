@@ -13,7 +13,24 @@ function Blog() {
         description="Helpful guides for CGPA, SGPA, Attendance, Percentage and student career."
         canonical="/blog"
       />
-
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "StudentTools Educational Articles",
+            description:
+              "Educational articles about CGPA, SGPA, attendance, percentage and student tools.",
+            itemListElement: blogs.map((blog, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: blog.title,
+              url: `https://student-tools-lskk.onrender.com${blog.link}`,
+            })),
+          }),
+        }}
+      />
       <div className="container py-5">
         <h1 className="mb-4 text-center">Student Blog</h1>
 
