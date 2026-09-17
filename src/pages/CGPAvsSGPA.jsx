@@ -8,7 +8,31 @@ function CGPAvsSGPA() {
         description="Understand the difference between CGPA and SGPA with simple examples."
         canonical="/blog/cgpa-vs-sgpa"
       />
-
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "CGPA vs SGPA: What's the Difference?",
+            description:
+              "Understand the difference between CGPA and SGPA with simple examples and comparison.",
+            author: {
+              "@type": "Organization",
+              name: "StudentTools",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "StudentTools",
+            },
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id":
+                "https://student-tools-lskk.onrender.com/blog/cgpa-vs-sgpa",
+            },
+          }),
+        }}
+      />
       <div className="container py-5" style={{ maxWidth: "900px" }}>
         <h1>CGPA vs SGPA</h1>
 
