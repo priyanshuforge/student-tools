@@ -46,7 +46,13 @@ const blogData = [
   title: "How to Convert Percentage to CGPA?",
   description:
     "Easy guide to convert percentage into CGPA using simple formulas and examples.",
-},
+  },
+  {
+    slug: "sgpa-to-cgpa",
+    title: "How to Convert SGPA to CGPA?",
+    description:
+      "Learn how to convert SGPA to CGPA using formulas, examples and semester-wise calculation.",
+  },
 ];
 
 export default blogData;
