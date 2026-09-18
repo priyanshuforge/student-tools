@@ -9,6 +9,16 @@ const Blog = () => {
         title="Student Blogs | CGPA, SGPA, Attendance & Career Guides"
         description="Read useful student guides about CGPA, SGPA, percentage, attendance and academic tools."
       />
+      <nav aria-label="breadcrumb" className="mb-4">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="breadcrumb-item active" aria-current="page">
+            Blog
+          </li>
+        </ol>
+      </nav>
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
