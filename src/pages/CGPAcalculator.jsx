@@ -1,18 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SEO from "../components/SEO";
 function CGPACalculator() {
-  useEffect(() => {
-    document.title = "CGPA Calculator Online | Convert CGPA to Percentage";
-
-    const description = document.querySelector('meta[name="description"]');
-
-    if (description) {
-      description.setAttribute(
-        "content",
-        "Free online CGPA calculator for students. Calculate CGPA and easily convert CGPA to percentage using different conversion formulas.",
-      );
-    }
-  }, []);
   const [cgpa, setCgpa] = useState("");
   const [formula, setFormula] = useState("9.5");
   const [customMultiplier, setCustomMultiplier] = useState("");
