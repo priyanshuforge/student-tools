@@ -9,7 +9,19 @@ const Blog = () => {
         title="Student Blogs | CGPA, SGPA, Attendance & Career Guides"
         description="Read useful student guides about CGPA, SGPA, percentage, attendance and academic tools."
       />
-
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Student Tools Blog Articles",
+          itemListElement: blogData.map((blog, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: blog.title,
+            url: `https://student-tools-lskk.onrender.com/blog/${blog.slug}`,
+          })),
+        })}
+      </script>
       <div className="container py-5">
         <h1 className="text-center mb-3">📚 Student Blogs</h1>
 
