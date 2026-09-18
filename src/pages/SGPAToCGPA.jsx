@@ -8,7 +8,7 @@ const SGPAToCGPA = () => {
       <SEO
         title="SGPA to CGPA Calculator: Formula, Conversion & Examples"
         description="Learn how to convert SGPA to CGPA using the correct formula, semester-wise examples, and an easy step-by-step guide."
-        canonical="https://student-tools-liart.vercel.app/blog/sgpa-to-cgpa"
+        canonical="/blog/sgpa-to-cgpa"
       />
 
       <script
@@ -30,7 +30,8 @@ const SGPAToCGPA = () => {
             },
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": "https://student-tools-liart.vercel.app/blog/sgpa-to-cgpa",
+              "@id":
+                "https://student-tools-lskk.onrender.com/blog/sgpa-to-cgpa",
             },
           }),
         }}
