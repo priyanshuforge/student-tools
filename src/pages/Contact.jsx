@@ -27,7 +27,7 @@ function Contact() {
                 </p>
 
                 <div className="alert alert-light border mt-4">
-                  <strong>Email:</strong> your-email@example.com
+                  <strong>Email:</strong> studenttools.contact@gmail.com
                 </div>
 
                 <h3 className="mt-4">Feedback</h3>

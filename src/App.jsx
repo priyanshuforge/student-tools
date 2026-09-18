@@ -22,6 +22,7 @@ import AttendancePercentage from "./pages/AttendancePercentage";
 import PercentageToCGPA from "./pages/PercentageToCGPA";
 import HowToCalculatePercentage from "./pages/HowToCalculatePercentage";
 import SGPAToCGPA from "./pages/SGPAToCGPA";
+import TermsAndConditions from "./pages/TermsAndConditions";
 function App() {
   return (
     <BrowserRouter>
@@ -63,6 +64,7 @@ function App() {
           path="/blog/attendance-percentage"
           element={<AttendancePercentage />}
         />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       </Routes>
       <Footer />
     </BrowserRouter>
