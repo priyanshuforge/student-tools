@@ -21,6 +21,12 @@ function Footer() {
           <Link to="/contact" className="text-light text-decoration-none mx-2">
             Contact
           </Link>
+          <Link
+            to="/terms-and-conditions"
+            className="text-light text-decoration-none mx-2"
+          >
+            Terms & Conditions
+          </Link>
         </div>
       </div>
     </footer>
