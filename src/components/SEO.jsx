@@ -1,6 +1,11 @@
 import { Helmet } from "react-helmet-async";
 
-function SEO({ title, description, canonical, image }) {
+function SEO({ title, description, canonical = "/", image }) {
+  const siteUrl = "https://student-tools-lskk.onrender.com";
+
+  const canonicalUrl = canonical.startsWith("http")
+    ? canonical
+    : `${siteUrl}${canonical}`;
   return (
     <Helmet>
       <title>{title}</title>
@@ -16,18 +21,12 @@ function SEO({ title, description, canonical, image }) {
 
       <meta name="robots" content="index, follow" />
 
-      <link
-        rel="canonical"
-        href={`https://student-tools-lskk.onrender.com${canonical}`}
-      />
+      <link rel="canonical" href={canonicalUrl} />
 
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta
-        property="og:url"
-        content={`https://student-tools-lskk.onrender.com${canonical}`}
-      />
+      <meta property="og:url" content={canonicalUrl} />
       <meta
         property="og:image"
         content={image || "https://student-tools-lskk.onrender.com/logo.png"}
