@@ -9,7 +9,7 @@
   margin-bottom: 24px;
 
   &:hover {
-    border-color: var(--accent-border); 
+    border-color: var(--accent-border);  
   }
   &:focus-visible {
     outline: 2px solid var(--accent); 
@@ -24,12 +24,12 @@
   .framework,
   .vite {
     inset-inline: 0;
-    margin: 0 auto;
+    margin: 0 auto; 
   }
 
   .base {
     width: 170px;
-    position: relative;
+    position: relative; 
     z-index: 0;
   }
 
